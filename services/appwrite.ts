@@ -1,3 +1,4 @@
+import 'react-native-url-polyfill/auto';
 import { Client, Databases, ID, Query } from "react-native-appwrite";
 
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;

@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   FlatList,
+  Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -32,7 +33,8 @@ const Index = () => {
   console.log('Home Page State:', {
     trendingMovies,
     trendingLoading,
-    trendingError
+    trendingError: trendingError?.message || trendingError,
+    platform: Platform.OS
   });
 
   const {
