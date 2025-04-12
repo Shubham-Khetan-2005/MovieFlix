@@ -44,7 +44,10 @@ const Details = () => {
 
   return (
     <View className="bg-primary flex-1">
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+      <ScrollView 
+        className="flex-1"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         <View>
           <Image
             source={{
@@ -113,17 +116,19 @@ const Details = () => {
         </View>
       </ScrollView>
 
-      <TouchableOpacity
-        className="absolute bottom-5 left-0 right-0 mx-5 bg-accent rounded-lg py-3.5 flex flex-row items-center justify-center z-50"
-        onPress={router.back}
-      >
-        <Image
-          source={icons.arrow}
-          className="size-5 mr-1 mt-0.5 rotate-180"
-          tintColor="#fff"
-        />
-        <Text className="text-white font-semibold text-base">Go Back</Text>
-      </TouchableOpacity>
+      <View className="absolute bottom-0 left-0 right-0 bg-primary pb-14 pt-2 px-5">
+        <TouchableOpacity
+          className="bg-accent rounded-lg py-3.5 flex flex-row items-center justify-center"
+          onPress={router.back}
+        >
+          <Image
+            source={icons.arrow}
+            className="size-5 mr-1 mt-0.5 rotate-180"
+            tintColor="#fff"
+          />
+          <Text className="text-white font-semibold text-base">Go Back</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
