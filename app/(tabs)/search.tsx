@@ -5,7 +5,7 @@ import { View, Text, ActivityIndicator, FlatList, Image } from "react-native";
 import { images } from "@/constants/images";
 import { icons } from "@/constants/icons";
 
-import useFetch from "@/services/usefetch";
+import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
 import { updateSearchCount } from "@/services/appwrite";
 
@@ -31,12 +31,11 @@ const Search = () => {
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
       if (searchQuery.trim()) {
-        await loadMovies();
-
-        // Call updateSearchCount only if there are results
-        if (movies?.length! > 0 && movies?.[0]) {
-          await updateSearchCount(searchQuery, movies[0]);
+        const searchResults = await fetchMovies({ query: searchQuery });
+        if (searchResults && searchResults.length > 0) {
+          await updateSearchCount(searchQuery, searchResults[0]);
         }
+        await loadMovies();
       } else {
         reset();
       }

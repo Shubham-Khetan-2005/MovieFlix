@@ -18,7 +18,7 @@ import { images } from "@/constants/images";
 import SearchBar from "@/components/SearchBar";
 import MovieCard from "@/components/MovieCard";
 import TrendingCard from "@/components/TrendingCard";
-import useFetch from "@/services/usefetch";
+import useFetch from "@/services/useFetch";
 
 const Index = () => {
   const router = useRouter();
